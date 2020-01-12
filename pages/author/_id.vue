@@ -8,6 +8,7 @@
         >
       </li>
     </ul>
+    <a href="/">トップに戻る</a>
   </div>
 </template>
 

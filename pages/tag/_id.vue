@@ -7,6 +7,7 @@
         <a v-bind:href="'/post/' + item.sys.id">{{ item.fields.title }}</a>
       </li>
     </ul>
+    <a href="/">トップに戻る</a>
   </div>
 </template>
 

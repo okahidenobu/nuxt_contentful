@@ -13,6 +13,8 @@
         <a v-bind:href="'/tag/' + tag">{{ tag }}</a>
       </li>
     </ul>
+
+    <a href="/">トップに戻る</a>
   </div>
 </template>
 
