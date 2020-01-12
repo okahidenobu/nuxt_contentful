@@ -2,12 +2,12 @@
   <div>
     <!-- <ul>
       <li v-for="item in items" :key="item.sys.id">{{ item.fields.title }}</li>
-    </ul> -->
+    </ul>-->
 
     <!-- fetchEntriesとfetchPostsByTagIdの確認用 -->
     <!-- <pre>
       {{ items }}
-    </pre> -->
+    </pre>-->
 
     <!-- fetchEntryの確認用 -->
     <pre>
