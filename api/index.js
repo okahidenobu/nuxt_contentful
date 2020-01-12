@@ -2,8 +2,8 @@ import { createClient } from "contentful";
 
 // 認証？
 const client = createClient({
-  space: "864mm222mwq5",
-  accessToken: "1GmlIVJcFYIpDCbRGC2OuWW-d0QKIQwIUz0S3lnHG6I"
+  space: "864mm222mwq5", //Space ID
+  accessToken: "1GmlIVJcFYIpDCbRGC2OuWW-d0QKIQwIUz0S3lnHG6I" //Content Delivery API - access token
 });
 
 //特定のcontentmodelを取り出す
