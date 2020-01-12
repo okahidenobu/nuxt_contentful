@@ -1,5 +1,7 @@
 <template>
   <div>
+    <h1>{{ this.$route.params.id }} タグを含むブログ一覧</h1>
+
     <ul>
       <li v-for="item in items" :key="item.sys.id">
         <a v-bind:href="'/post/' + item.sys.id">{{ item.fields.title }}</a>
@@ -9,11 +11,15 @@
 </template>
 
 <script>
-import { fetchblogs } from "@/api";
+import { fetchPostsByTagId } from "@/api";
 
 export default {
-  async asyncData() {
-    return await fetchblogs();
+  async asyncData({ params }) {
+    let ret = await fetchPostsByTagId(params.id);
+
+    console.log(ret);
+
+    return ret;
   }
 };
 </script>

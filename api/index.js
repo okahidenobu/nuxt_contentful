@@ -6,20 +6,34 @@ const client = createClient({
   accessToken: "1GmlIVJcFYIpDCbRGC2OuWW-d0QKIQwIUz0S3lnHG6I" //Content Delivery API - access token
 });
 
-//特定のcontentmodelを取り出す
-export const fetchEntries = content_type =>
+//全blogを日付降順で取得する
+export const fetchblogs = () =>
   client.getEntries({
-    content_type: content_type,
+    content_type: "blogPost",
     order: "-fields.publishDate"
   });
 
-//特定のcontentを取り出す
-export const fetchEntry = entryId => client.getEntry(entryId);
-
-//特定のタグのコンテントを取り出す
-export const fetchPostsByTagId = (content_type, tagId) =>
+//全著者を取得する
+export const fetchAuthors = () =>
   client.getEntries({
-    content_type: content_type,
+    content_type: "person"
+  });
+
+//特定のcontentを取得する
+export const fetchEntryByentryId = entryId => client.getEntry(entryId);
+
+//特定のタグのcontentを取得する
+export const fetchPostsByTagId = tagId =>
+  client.getEntries({
+    content_type: "blogPost",
     "fields.tags": tagId,
-    order: "-fields.releaseDate"
+    order: "-fields.publishDate"
+  });
+
+//特定の著者のcontentを取得する
+export const fetchPostsByAthorId = authorId =>
+  client.getEntries({
+    content_type: "blogPost",
+    "fields.author.sys.id": authorId,
+    order: "-fields.publishDate"
   });
