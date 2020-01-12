@@ -18,7 +18,7 @@ export default {
   async asyncData({ params }) {
     let ret = await fetchPostsByTagId(params.id);
 
-    console.log(ret);
+    // console.log(ret);
 
     return ret;
   }

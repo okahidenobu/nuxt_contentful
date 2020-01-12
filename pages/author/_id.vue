@@ -19,7 +19,7 @@ export default {
   async asyncData({ params }) {
     let ret = await fetchPostsByAthorId(params.id);
 
-    console.log(ret);
+    // console.log(ret);
 
     return ret;
   }
