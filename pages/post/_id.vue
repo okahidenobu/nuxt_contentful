@@ -6,7 +6,6 @@
     <a v-bind:href="'/author/' + fields.author.sys.id">{{
       fields.author.fields.name
     }}</a>
-    <pre>{{ fields.author }}</pre>
 
     <p>タグ</p>
     <ul>
@@ -14,7 +13,6 @@
         <a v-bind:href="'/tag/' + tag">{{ tag }}</a>
       </li>
     </ul>
-    <pre>entryId : {{ this.$route.params.id }}</pre>
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{ items[0].fields.author.fields.name }} の著者ページ</h1>
+    <h1>{{ items[0].fields.author.fields.name }} が著者のブログ一覧</h1>
     <ul>
       <li v-for="item in items" :key="item.sys.id">
         <a v-bind:href="'/post/' + item.sys.id"
