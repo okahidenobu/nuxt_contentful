@@ -1,6 +1,6 @@
-# contentful
+# nuxt_contentful_test
 
-> My cool Nuxt.js project
+> 
 
 ## Build Setup
 
