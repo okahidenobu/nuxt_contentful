@@ -10,7 +10,7 @@ const client = createClient({
 export const fetchEntries = content_type =>
   client.getEntries({
     content_type: content_type,
-    order: "-fields.releaseDate"
+    order: "-fields.publishDate"
   });
 
 //特定のcontentを取り出す
