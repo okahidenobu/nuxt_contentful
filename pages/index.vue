@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('~/assets/images/home-bg.jpg')">
+    <header class="masthead" style="background-image: url('~assets/images/home-bg.jpg')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
@@ -44,7 +44,11 @@ export default {
     let ret = await fetchblogs();
     console.log(ret.items);
 
-    return ret;
+    return {
+      items: ret.items
+    };
   }
 };
 </script>
+
+<style lang="stylus"></style>
