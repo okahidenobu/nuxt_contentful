@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-light">
     <!-- Page Header -->
     <header
       class="masthead"
@@ -24,7 +24,7 @@
     <div class="container my-5">
       <div class="row">
         <div v-for="item in items" :key="item.sys.id" class="card col-4">
-          <svg
+          <!-- <svg
             class="bd-placeholder-img card-img-top"
             width="100%"
             height="180"
@@ -37,26 +37,32 @@
             <title>Placeholder</title>
             <rect width="100%" height="100%" fill="#868e96" />
             <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-          </svg>
-          <!-- カード内容 -->
-          <div class="card-body">
-            <h5 class="card-title">{{ item.fields.title }}</h5>
-            <p class="post-meta">
-              Posted by
-              <a href="#">{{ item.fields.author.fields.name }}</a>
-              <!-- {{ item.fields.publishDate }} -->
-            </p>
+          </svg> -->
 
+          <div class="card-body">
+            <img
+              class="bd-placeholder-img card-img-top"
+              v-bind:src="item.fields.heroImage.fields.file.url"
+            />
+            <h5 class="card-title">{{ item.fields.title }}</h5>
             <div class="card-text">
               {{ removeHtml($md.render(item.fields.body)) }}
               ...
             </div>
-            <a v-bind:href="'/post/' + item.sys.id" class="btn btn-primary mt-3"
+            <p class="post-meta mt-3">
+              Posted by
+              <a v-bind:href="'/author/' + item.fields.author.sys.id">{{
+                item.fields.author.fields.name
+              }}</a>
+              <!-- {{ item.fields.publishDate }} -->
+            </p>
+            <a v-bind:href="'/post/' + item.sys.id" class="btn btn-primary mt-2"
               >ページを開く</a
             >
           </div>
         </div>
       </div>
+      <a href="/authors/">著者一覧ページへ</a>
     </div>
   </div>
 </template>
@@ -68,7 +74,7 @@ const striptags = require("striptags");
 export default {
   methods: {
     removeHtml(baseHtml) {
-      return striptags(baseHtml).substring(0, 100);
+      return striptags(baseHtml).substring(0, 150);
     }
   },
 

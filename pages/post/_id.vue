@@ -1,9 +1,11 @@
 <template>
-  <div>
+  <div class="bg-light">
     <h1>{{ fields.title }} のブログページ</h1>
 
     <p class="bg-primary text-danger">著者</p>
-    <a v-bind:href="'/author/' + fields.author.sys.id">{{ fields.author.fields.name }}</a>
+    <a v-bind:href="'/author/' + fields.author.sys.id">{{
+      fields.author.fields.name
+    }}</a>
 
     <div v-html="$md.render(fields.body)"></div>
     <p>タグ</p>
