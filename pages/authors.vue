@@ -2,8 +2,8 @@
   <div>
     <!-- Page Header -->
     <header
-      class="masthead"
-      style="background-image: url('~assets/images/home-bg.jpg')"
+        class="masthead"
+        style="background-image: url('~assets/images/home-bg.jpg')"
     >
       <div class="overlay"></div>
       <div class="container">
@@ -22,8 +22,8 @@
         <div v-for="item in items" :key="item.sys.id">
           <div>
             <img
-              v-bind:src="item.fields.image.fields.file.url"
-              style="width:300px"
+                v-bind:src="item.fields.image.fields.file.url"
+                style="width:300px"
             />
             <a v-bind:href="'/author/' + item.sys.id">{{ item.fields.name }}</a>
           </div>
@@ -35,11 +35,11 @@
 </template>
 
 <script>
-import { fetchAuthors } from "@/api";
+  import {fetchAuthors} from "@/api"
 
-export default {
-  async asyncData() {
-    return await fetchAuthors();
+  export default {
+    async asyncData() {
+      return await fetchAuthors()
+    }
   }
-};
 </script>

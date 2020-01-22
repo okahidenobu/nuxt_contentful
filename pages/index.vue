@@ -2,8 +2,8 @@
   <div class="bg-light">
     <!-- Page Header -->
     <header
-      class="masthead"
-      style="background-image: url('~assets/images/home-bg.jpg')"
+        class="masthead"
+        style="background-image: url('~assets/images/home-bg.jpg')"
     >
       <div class="overlay"></div>
       <div class="container">
@@ -12,7 +12,7 @@
             <div class="site-heading">
               <h1>ブログ一覧</h1>
               <span class="subheading"
-                >NUXTとContentfulを用いてテストブログを作成</span
+              >NUXTとContentfulを用いてテストブログを作成</span
               >
             </div>
           </div>
@@ -41,8 +41,8 @@
 
           <div class="card-body">
             <img
-              class="bd-placeholder-img card-img-top"
-              v-bind:src="item.fields.heroImage.fields.file.url"
+                class="bd-placeholder-img card-img-top"
+                v-bind:src="item.fields.heroImage.fields.file.url"
             />
             <h5 class="card-title">{{ item.fields.title }}</h5>
             <div class="card-text">
@@ -53,11 +53,11 @@
               Posted by
               <a v-bind:href="'/author/' + item.fields.author.sys.id">{{
                 item.fields.author.fields.name
-              }}</a>
+                }}</a>
               <!-- {{ item.fields.publishDate }} -->
             </p>
             <a v-bind:href="'/post/' + item.sys.id" class="btn btn-primary mt-2"
-              >ページを開く</a
+            >ページを開く</a
             >
           </div>
         </div>
@@ -68,25 +68,26 @@
 </template>
 
 <script>
-import { fetchblogs } from "@/api";
-const striptags = require("striptags");
+  import {fetchblogs} from "@/api"
 
-export default {
-  methods: {
-    removeHtml(baseHtml) {
-      return striptags(baseHtml).substring(0, 150);
+  const striptags = require("striptags")
+
+  export default {
+    methods: {
+      removeHtml(baseHtml) {
+        return striptags(baseHtml).substring(0, 150)
+      }
+    },
+
+    async asyncData() {
+      let ret = await fetchblogs()
+      console.log(ret.items)
+
+      return {
+        items: ret.items
+      }
     }
-  },
-
-  async asyncData() {
-    let ret = await fetchblogs();
-    console.log(ret.items);
-
-    return {
-      items: ret.items
-    };
   }
-};
 </script>
 
 <style lang="stylus"></style>

@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <div class="bg-light">
+  <div class="bg-light">
+    <div>
       <!-- Page Header -->
       <header
-        class="masthead"
-        style="background-image: url('~assets/images/home-bg.jpg')"
+          class="masthead"
+          style="background-image: url('~assets/images/home-bg.jpg')"
       >
         <div class="overlay"></div>
         <div class="container">
@@ -39,8 +39,8 @@
 
             <div class="card-body">
               <img
-                class="bd-placeholder-img card-img-top"
-                v-bind:src="item.fields.heroImage.fields.file.url"
+                  class="bd-placeholder-img card-img-top"
+                  v-bind:src="item.fields.heroImage.fields.file.url"
               />
               <h5 class="card-title">{{ item.fields.title }}</h5>
               <div class="card-text">
@@ -48,9 +48,9 @@
                 ...
               </div>
               <a
-                v-bind:href="'/post/' + item.sys.id"
-                class="btn btn-primary mt-2"
-                >ページを開く</a
+                  v-bind:href="'/post/' + item.sys.id"
+                  class="btn btn-primary mt-2"
+              >ページを開く</a
               >
             </div>
           </div>
@@ -62,21 +62,22 @@
 </template>
 
 <script>
-import { fetchPostsByTagId } from "@/api";
-const striptags = require("striptags");
+  import {fetchPostsByTagId} from "@/api"
 
-export default {
-  methods: {
-    removeHtml(baseHtml) {
-      return striptags(baseHtml).substring(0, 150);
+  const striptags = require("striptags")
+
+  export default {
+    methods: {
+      removeHtml(baseHtml) {
+        return striptags(baseHtml).substring(0, 150)
+      }
+    },
+    async asyncData({params}) {
+      let ret = await fetchPostsByTagId(params.id)
+
+      // console.log(ret);
+
+      return ret
     }
-  },
-  async asyncData({ params }) {
-    let ret = await fetchPostsByTagId(params.id);
-
-    // console.log(ret);
-
-    return ret;
   }
-};
 </script>
