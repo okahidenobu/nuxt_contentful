@@ -1,3 +1,5 @@
+const contentful = require("./api/index.js");
+
 export default {
   mode: "universal",
   /*
@@ -62,5 +64,18 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+  generate: {
+    // routes: ["/post/31TNnjHlfaGUoMOwU0M2og"],
+    routes() {
+      return contentful.fetchblogs().then(entries => {
+        return [...entries.items.map(entry => `/post/${entry.sys.id}`)];
+      });
+    }
+  },
+  env: {
+    CTF_SPACE_ID: "864mm222mwq5",
+    CTF_CDA_ACCESS_TOKEN: "1GmlIVJcFYIpDCbRGC2OuWW",
+    CTF_BLOG_POST_TYPE_ID: "blogPost"
   }
 };

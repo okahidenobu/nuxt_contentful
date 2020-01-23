@@ -48,20 +48,20 @@
               <div style="position:absolute;bottom:20px;">
                 <p class="post-meta mt-3">
                   Posted by
-                  <a v-bind:href="'/author/' + item.fields.author.sys.id">
+                  <nuxt-link v-bind:to="'/author/' + item.fields.author.sys.id">
                     {{
                     item.fields.author.fields.name
                     }}
-                  </a>
+                  </nuxt-link>
                   <!-- {{ item.fields.publishDate }} -->
                 </p>
-                <a v-bind:href="'/post/' + item.sys.id" class="btn btn-primary mt-2">ページを開く</a>
+                <nuxt-link v-bind:to="'/post/' + item.sys.id" class="btn btn-primary mt-2">ページを開く</nuxt-link>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <a href="/authors/">著者一覧ページへ</a>
+      <nuxt-link to="/authors/">著者一覧ページへ</nuxt-link>
     </div>
   </div>
 </template>
@@ -80,7 +80,7 @@ export default {
 
   async asyncData() {
     let ret = await fetchblogs();
-    console.log(ret.items);
+    // console.log(ret.items);
 
     return {
       items: ret.items

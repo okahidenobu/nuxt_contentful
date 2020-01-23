@@ -9,9 +9,9 @@
               <h1>{{ fields.title }}</h1>
               <p style="float:right">
                 posted by
-                <a
-                  v-bind:href="'/author/' + fields.author.sys.id"
-                >{{fields.author.fields.name }}</a>
+                <nuxt-link
+                  v-bind:to="'/author/' + fields.author.sys.id"
+                >{{fields.author.fields.name }}</nuxt-link>
               </p>
             </div>
           </div>
@@ -23,11 +23,11 @@
       <p>タグ</p>
       <ul>
         <li v-for="tag in fields.tags">
-          <a v-bind:href="'/tag/' + tag">{{ tag }}</a>
+          <nuxt-link v-bind:to="'/tag/' + tag">{{ tag }}</nuxt-link>
         </li>
       </ul>
 
-      <a href="/">トップに戻る</a>
+      <nuxt-link to="/">トップに戻る</nuxt-link>
     </div>
   </div>
 </template>
@@ -39,7 +39,7 @@ export default {
   async asyncData({ params }) {
     let ret = await fetchEntryByentryId(params.id);
 
-    console.log(ret.fields);
+    // console.log(ret.fields);
 
     return ret;
   }
