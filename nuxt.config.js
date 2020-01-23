@@ -68,6 +68,7 @@ export default {
   generate: {
     // routes: ["/post/31TNnjHlfaGUoMOwU0M2og"],
     routes() {
+      const routes = [];
       return contentful.fetchblogs().then(entries => {
         return [...entries.items.map(entry => `/post/${entry.sys.id}`)];
       });
