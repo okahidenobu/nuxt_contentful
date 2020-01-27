@@ -14,9 +14,9 @@
       </div>
     </header>
 
-    <div class="container">
-      <div>
-        <div v-for="item in items" :key="item.sys.id">
+    <div class="container my-5">
+      <div class="row">
+        <div v-for="item in items" :key="item.sys.id" class="col-sm-6 col-lg-4 mb-4">
           <div>
             <img v-bind:src="item.fields.image.fields.file.url" style="width:300px" />
             <nuxt-link v-bind:to="'/author/' + item.sys.id">{{ item.fields.name }}</nuxt-link>

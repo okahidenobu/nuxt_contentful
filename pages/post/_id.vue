@@ -19,6 +19,11 @@
       </div>
     </header>
     <div class="container">
+      <img
+        class="bd-placeholder-img"
+        v-bind:src="fields.heroImage.fields.file.url"
+        style="width:300px"
+      />
       <div v-html="$md.render(fields.body)"></div>
       <p>タグ</p>
       <ul>
@@ -39,7 +44,7 @@ export default {
   async asyncData({ params }) {
     let ret = await fetchEntryByentryId(params.id);
 
-    // console.log(ret.fields);
+    console.log(ret.fields.heroImage.fields);
 
     return ret;
   }
