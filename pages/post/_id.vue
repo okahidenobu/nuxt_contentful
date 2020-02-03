@@ -10,8 +10,9 @@
               <p style="float:right">
                 posted by
                 <nuxt-link
-                  v-bind:to="'/author/' + fields.author.sys.id"
-                >{{fields.author.fields.name }}</nuxt-link>
+                    v-bind:to="'/author/' + fields.author.sys.id"
+                >{{fields.author.fields.name }}
+                </nuxt-link>
               </p>
             </div>
           </div>
@@ -20,9 +21,9 @@
     </header>
     <div class="container">
       <img
-        class="bd-placeholder-img"
-        v-bind:src="fields.heroImage.fields.file.url"
-        style="width:300px"
+          class="bd-placeholder-img"
+          v-bind:src="fields.heroImage.fields.file.url"
+          style="width:300px"
       />
       <div v-html="$md.render(fields.body)"></div>
       <p>タグ</p>
@@ -38,15 +39,15 @@
 </template>
 
 <script>
-import { fetchEntryByentryId } from "@/api";
+  import {fetchEntryByentryId} from "@/api"
 
-export default {
-  async asyncData({ params }) {
-    let ret = await fetchEntryByentryId(params.id);
+  export default {
+    async asyncData({params}) {
+      let ret = await fetchEntryByentryId(params.id)
 
-    console.log(ret.fields.heroImage.fields);
+      console.log(ret.fields.heroImage)
 
-    return ret;
+      return ret
+    }
   }
-};
 </script>
